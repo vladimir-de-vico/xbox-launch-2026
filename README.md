@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Xbox Launch 2026
 
-## Getting Started
+Landing page interattiva per il lancio di Xbox Series X: sei step a schermo intero con modello 3D, testi animati e galleria. Esportata come sito completamente statico.
 
-First, run the development server:
+## Stack
+
+- Next.js (App Router, `output: 'export'`), React, TypeScript
+- Tailwind CSS
+- three.js `WebGPURenderer` (WebGPU, fallback automatico su WebGL2) con post-processing TSL
+- React Aria Components, GSAP, Zustand
+- Biome per lint e formattazione
+
+## Requisiti
+
+- Node.js 24 (`nvm use`)
+- pnpm
+
+## Comandi
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
+pnpm dev      # sviluppo su http://localhost:3000
+pnpm lint     # biome check
+pnpm format   # biome check --write
+pnpm build    # export statico in out/
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Struttura
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+src/
+  app/          layout, pagina, manifest
+  components/   atoms, molecules, organisms, templates (Atomic Design)
+  data/         contenuti degli step
+  hooks/        audio ambientale, navigazione tra step
+  lib/          gsap, scena three.js, preferenze di movimento
+  store/        store Zustand dell'esperienza
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Pubblicazione su Aruba
 
-## Learn More
+1. `pnpm build`
+2. Caricare via FTP **il contenuto** di `out/` nella root del sito (`www.tuodominio.it`), incluso il file nascosto `.htaccess`.
+3. Il dominio deve essere autorizzato nel kit Adobe Fonts `xqn0xeo`.
 
-To learn more about Next.js, take a look at the following resources:
+L'`.htaccess` imposta la pagina 404, i MIME type di `.glb` e `.webmanifest`, la compressione e la cache (immutabile per `/_next/static`, `no-cache` per HTML e `sw.js`).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Analytics
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Il componente `src/components/atoms/Analytics.tsx` carica GA4 solo se è definita `NEXT_PUBLIC_GA_ID` in fase di build. Al momento non è montato.
