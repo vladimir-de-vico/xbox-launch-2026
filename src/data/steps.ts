@@ -11,7 +11,6 @@ interface Step {
   titleLines: [string, string] | []
   description: string
   ctaLabel: string
-  ctaId: string
   alignment: 'left' | 'center' | 'right'
   images?: string[]
   meshPosition: Vec3
@@ -46,7 +45,6 @@ const steps: Step[] = [
     titleLines: ['XBOX', 'Series X'],
     description: '',
     ctaLabel: '',
-    ctaId: '',
     alignment: 'center',
     meshPosition: { x: 0, y: -2, z: -3 },
     meshRotation: { x: 0.05, y: 0.78, z: 0 },
@@ -61,7 +59,6 @@ const steps: Step[] = [
     description:
       'Progettata per farti percepire la velocità. Tempi di caricamento, drasticamente ridotti grazie alla nuova unità SSD da 1TB espandibile, e alla nuova CPU. Salta tra i tuoi titoli preferiti con un click e vivi esperienze di gioco ancora più fluide con i nuovi 120 fps.',
     ctaLabel: 'Scopri di più',
-    ctaId: 'speed-cta',
     alignment: 'left',
     meshPosition: { x: 1.7, y: -0.45, z: -5.5 },
     meshRotation: { x: 0.3, y: -1, z: 0 },
@@ -76,7 +73,6 @@ const steps: Step[] = [
     description:
       'L’elegante design monolitico di Xbox Series X è il risultato della combinazione di innovazioni hardware e software elaborate con l’unico scopo di ottenere il massimo delle prestazioni e della velocità, mantenendo alto il coefficiente di affidabilità.',
     ctaLabel: 'Scopri di più',
-    ctaId: 'design-cta',
     alignment: 'right',
     meshPosition: { x: -1.7, y: -0.45, z: -5.5 },
     meshRotation: { x: 0.3, y: 1, z: 0 },
@@ -91,7 +87,6 @@ const steps: Step[] = [
     description:
       'Con Xbox Series X potrai vivere esperienze di gioco ancora più immersive grazie al supporto per risoluzioni fino a 4K a 120 fps e HDR. Tempi di caricamento e input lag diminuiti drasticamente per garantirti il massimo del divertimento e del controllo.',
     ctaLabel: 'Scopri di più',
-    ctaId: 'entertainment-cta',
     alignment: 'left',
     images: gallery,
     meshPosition: { x: 0, y: 0, z: -8 },
@@ -106,7 +101,6 @@ const steps: Step[] = [
     titleLines: ['Con il Game Pass', 'divertimento *illimitato*'],
     description: '',
     ctaLabel: 'Abbonati',
-    ctaId: 'subscription-cta',
     alignment: 'center',
     meshPosition: { x: 4, y: -1.35, z: 0 },
     meshRotation: { x: 0.45, y: -2.7, z: 0 },
@@ -120,7 +114,6 @@ const steps: Step[] = [
     titleLines: [],
     description: '',
     ctaLabel: 'Acquista',
-    ctaId: 'buy-cta',
     alignment: 'center',
     meshPosition: { x: 0, y: 0, z: -7 },
     meshRotation: { x: 0, y: 0, z: 0 },
