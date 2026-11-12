@@ -36,6 +36,14 @@
         "noJsxLiterals": "off",
         "noHexColors": "off",
         "noTernary": "off"
+      },
+      "suspicious": {
+        "noConsole": {
+          "level": "error",
+          "options": {
+            "allow": ["error"]
+          }
+        }
       }
     },
     "domains": {
