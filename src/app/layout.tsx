@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import localFont from 'next/font/local'
 import type { ReactNode } from 'react'
+import { ServiceWorker } from '@/components/atoms/ServiceWorker.tsx'
 import './globals.css'
 
 const x360 = localFont({
@@ -29,7 +30,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <link href="https://use.typekit.net" rel="preconnect" />
         <link href="https://use.typekit.net/xqn0xeo.css" rel="stylesheet" />
       </head>
-      <body className="font-display">{children}</body>
+      <body className="font-display">
+        {children}
+        <ServiceWorker />
+      </body>
     </html>
   )
 }
