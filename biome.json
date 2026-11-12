@@ -34,7 +34,8 @@
       "preset": "all",
       "style": {
         "noJsxLiterals": "off",
-        "noHexColors": "off"
+        "noHexColors": "off",
+        "noTernary": "off"
       }
     },
     "domains": {
