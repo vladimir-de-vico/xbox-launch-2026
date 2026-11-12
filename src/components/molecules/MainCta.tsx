@@ -4,21 +4,15 @@ import { Logo } from '@/components/atoms/Logo.tsx'
 interface MainCtaProps {
   label: string
   className?: string
-  isFocusable?: boolean
 }
 
 const transition =
   'transition-all duration-800 ease-cubic group-data-focus-visible:duration-400 motion-reduce:duration-0'
 
 /** Demo CTA: intentionally has no action. */
-const MainCta = ({
-  label,
-  className = '',
-  isFocusable = true,
-}: MainCtaProps) => (
+const MainCta = ({ label, className = '' }: MainCtaProps) => (
   <Button
     className={`group pointer-events-auto relative z-1 flex h-11 min-w-[174px] cursor-pointer select-none items-center justify-center overflow-hidden rounded-[22px] bg-dark-secondary outline-none ${className}`}
-    excludeFromTabOrder={!isFocusable}
   >
     <span
       className={`absolute left-0 z-2 flex size-full items-center justify-start overflow-hidden rounded-[22px] bg-green group-data-focus-visible:translate-x-[calc(100%-44px)] group-data-hovered:translate-x-[calc(100%-44px)] ${transition}`}
