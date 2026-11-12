@@ -1,0 +1,79 @@
+{
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true
+  },
+  "files": {
+    "ignoreUnknown": true,
+    "includes": ["**", "!public"]
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineEnding": "lf"
+  },
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "single",
+      "jsxQuoteStyle": "double",
+      "semicolons": "asNeeded",
+      "trailingCommas": "es5"
+    }
+  },
+  "css": {
+    "parser": {
+      "tailwindDirectives": true
+    }
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "preset": "all",
+      "style": {
+        "noJsxLiterals": "off",
+        "noHexColors": "off"
+      }
+    },
+    "domains": {
+      "next": "all",
+      "react": "all",
+      "project": "all",
+      "tailwind": "all",
+      "solid": "none",
+      "qwik": "none",
+      "reactNative": "none",
+      "svelte": "none",
+      "astro": "none",
+      "vue": "none",
+      "drizzle": "none",
+      "playwright": "none",
+      "tanstackQuery": "none",
+      "turborepo": "none"
+    }
+  },
+  "overrides": [
+    {
+      "includes": ["src/app/**", "*.config.ts"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noDefaultExport": "off",
+            "useComponentExportOnlyModules": "off"
+          }
+        }
+      }
+    }
+  ],
+  "assist": {
+    "enabled": true,
+    "actions": {
+      "source": {
+        "organizeImports": "on",
+        "useSortedKeys": "off"
+      }
+    }
+  }
+}
